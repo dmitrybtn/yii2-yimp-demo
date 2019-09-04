@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        
+<link href="./assets/ace794a9/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/ea8b87d4/solarized_light.css" rel="stylesheet">
+<link href="./assets/71c95595/style.css" rel="stylesheet">
+<script src="./assets/ddc57710/jquery.js"></script>
+<script src="./assets/ace794a9/js/bootstrap.js"></script>
+<script src="./assets/46fea707/jssearch.js"></script>    <title>MenuAdapter, dmitrybtn\yimp\MenuAdapter - Yii Framework 2.0 API Documentation</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w10" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w10-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Yii Framework 2.0 API Documentation</a></div><div id="w10-collapse" class="collapse navbar-collapse"><ul id="w11" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-8" data-toggle="collapse" data-parent="#navigation">dmitrybtn\yimp <b class="caret"></b></a><div id="navigation-8" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./dmitrybtn-yimp-asset.html">Asset</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-asseticons.html">AssetIcons</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-erroraction.html">ErrorAction</a>
+<a class="list-group-item active" href="./dmitrybtn-yimp-menuadapter.html">MenuAdapter</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-navigator.html">Navigator</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-routehelper.html">RouteHelper</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-url.html">Url</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-yimp.html">Yimp</a></div>
+<a class="list-group-item" href="#navigation-9" data-toggle="collapse" data-parent="#navigation">dmitrybtn\yimp\widgets <b class="caret"></b></a><div id="navigation-9" class="submenu panel-collapse collapse"><a class="list-group-item" href="./dmitrybtn-yimp-widgets-alert.html">Alert</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-widgets-controls.html">Controls</a>
+<a class="list-group-item" href="./dmitrybtn-yimp-widgets-menu.html">Menu</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Class dmitrybtn\yimp\MenuAdapter</h1>
+<div class="top-nav">
+    <a href="index.html">All Classes</a>
+            | <a href="#properties">Properties</a>
+                | <a href="#methods">Methods</a>
+            </div>
+
+<table class="summaryTable docClass table table-bordered">
+    <colgroup>
+        <col class="col-name" />
+        <col class="col-value" />
+    </colgroup>
+            <tr><th>Inheritance</th><td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a> &raquo;
+yii\base\BaseObject</td></tr>
+                                        </table>
+
+<div class="class-description">
+    <p><strong>Adapter for <a href="https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/api/2.0/yii-bootstrap4-nav">yii\bootstrap4\Nav</a>,
+providing some additional functionality.</strong></p>
+    <p>TODO: Написать, что компонент создается через DI-контейнер</p>
+<p>The following functionality is provided:</p>
+<ol>
+<li>Configure items visibility for desktops and mobiles separately.</li>
+<li>Generate an empty string if menu is invisible. Menu is invisible on current device if all link items are invisible
+on this device, even if there are visible labels (items with empty 'url' property).</li>
+</ol>
+<p>Config array, passed to <a href="dmitrybtn-yimp-menuadapter.html#widget()-detail">dmitrybtn\yimp\MenuAdapter::widget()</a> differs from the original in the following:</p>
+<ul>
+<li><p><code>mode</code>: YIMP renders each menu in layout two times - for desktops and for mobile devices. In first case it sets this
+ prop to <a href="dmitrybtn-yimp-yimp.html#DESKTOP-detail">dmitrybtn\yimp\Yimp::DESKTOP</a>, in second - to <a href="dmitrybtn-yimp-yimp.html#MOBILE-detail">dmitrybtn\yimp\Yimp::MOBILE</a>. If item's <code>visibleMode</code> prop is set, this item will be
+ rendered only if it's <code>visibleMode</code> value equals to this one.</p>
+</li>
+<li><p><code>items</code>:</p>
+<ul>
+<li><code>active</code>: In original widget it is bool. Here it can be string, representing the mask, passed to <a href="dmitrybtn-yimp-routehelper.html#match()-detail">dmitrybtn\yimp\RouteHelper::match()</a>. If current route matches
+this mask, item will be activated. For example, this property is set to <code>orders/*</code>, item will be active on
+<code>orders/create</code>, <code>orders/update</code>, <code>orders/item/create</code>, and so on.</li>
+<li><code>visibleMode</code>: If you want to show menu item only on desktops, set it to <code>Yimp::DESKTOP</code>. For mobiles - <code>YIMP::MOBILE</code>.</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+<a id="properties"></a>
+
+<div class="summary doc-property">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-property" />
+    <col class="col-type" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="$mode">
+        <td><a href="dmitrybtn-yimp-menuadapter.html#$mode-detail">$mode</a></td>
+        <td><a href="http://www.php.net/language.types.string">string</a></td>
+        <td>Mode for display menu.</td>
+        <td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a></td>
+    </tr>
+            <tr id="$route">
+        <td><a href="dmitrybtn-yimp-menuadapter.html#$route-detail">$route</a></td>
+        <td><a href="http://www.php.net/language.types.string">string</a></td>
+        <td>Current route</td>
+        <td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a></td>
+    </tr>
+            <tr id="$visible">
+        <td><a href="dmitrybtn-yimp-menuadapter.html#$visible-detail">$visible</a></td>
+        <td><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+        <td>Whether all menu is visible</td>
+        <td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="methods"></a>
+
+<div class="summary doc-method">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+                <tr id="widget()">
+        <td><a href="dmitrybtn-yimp-menuadapter.html#widget()-detail">widget()</a></td>
+        <td>Creates Bootstrap Nav widget instance and renders it.</td>
+        <td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a></td>
+    </tr>
+    </table>
+</div>
+
+<div class="summary doc-method">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="adapt()">
+        <td><a href="dmitrybtn-yimp-menuadapter.html#adapt()-detail">adapt()</a></td>
+        <td>Adapts menu items to Bootstrap Nav widget format.</td>
+        <td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a></td>
+    </tr>
+            <tr id="adaptItem()">
+        <td><a href="dmitrybtn-yimp-menuadapter.html#adaptItem()-detail">adaptItem()</a></td>
+        <td>Adapts menu item to Bootstrap Nav widget format.</td>
+        <td><a href="dmitrybtn-yimp-menuadapter.html">dmitrybtn\yimp\MenuAdapter</a></td>
+    </tr>
+        </table>
+</div>
+
+<a id="events"></a>
+
+<a id="constants"></a>
+
+<h2>Property Details</h2>
+
+<div class="property-doc">
+
+    <div class="detail-header h3" id="$mode-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="dmitrybtn-yimp-menuadapter.html#$mode-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $mode        <span class="detail-header-tag small">
+            protected                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p>Mode for display menu. Can be Yimp::DESKTOP or Yimp::MOBILE</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <a href="dmitrybtn-yimp-menuadapter.html#$mode-detail">$mode</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span></div>
+
+
+    <div class="detail-header h3" id="$route-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="dmitrybtn-yimp-menuadapter.html#$route-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $route        <span class="detail-header-tag small">
+            protected                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p>Current route</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <a href="dmitrybtn-yimp-menuadapter.html#$route-detail">$route</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span></div>
+
+
+    <div class="detail-header h3" id="$visible-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="dmitrybtn-yimp-menuadapter.html#$visible-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $visible        <span class="detail-header-tag small">
+            protected                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p>Whether all menu is visible</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.boolean">boolean</a></span> <a href="dmitrybtn-yimp-menuadapter.html#$visible-detail">$visible</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span></div>
+
+</div>
+<h2>Method Details</h2>
+
+<div class="method-doc">
+
+    <div class="detail-header h3" id="adapt()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="dmitrybtn-yimp-menuadapter.html#adapt()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        adapt()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Adapts menu items to Bootstrap Nav widget format.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <strong><a href="dmitrybtn-yimp-menuadapter.html#adapt()-detail">adapt</a></strong> ( <span style="color: #0000BB">$items</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$items</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"><p>Array List of menu items</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>List of adapted menu items</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="adaptItem()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="dmitrybtn-yimp-menuadapter.html#adaptItem()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        adaptItem()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Adapts menu item to Bootstrap Nav widget format.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <strong><a href="dmitrybtn-yimp-menuadapter.html#adaptItem()-detail">adaptItem</a></strong> ( <span style="color: #0000BB">$item</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$item</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"><p>Array Menu item config</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>Adapted menu item config</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="widget()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="dmitrybtn-yimp-menuadapter.html#widget()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        widget()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Creates Bootstrap Nav widget instance and renders it.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <strong><a href="dmitrybtn-yimp-menuadapter.html#widget()-detail">widget</a></strong> ( <span style="color: #0000BB">$config&nbsp;</span><span style="color: #007700">=&nbsp;[]</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$config</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>Config array to be adapted for Bootstrap Nav widget.</p>
+</td>
+                </tr>
+                                                    <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col"><a href="http://www.php.net/class.exception">Exception</a></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                        </table>
+
+<!--	-->
+</div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 06 Sep 2019 06:45:31 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

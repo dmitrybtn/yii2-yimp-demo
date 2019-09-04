@@ -1,81 +1,83 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+use dmitrybtn\yimp\widgets\Alert;
+use dmitrybtn\yimp\Yimp;
+use yii\bootstrap4\Html;
 
-use app\widgets\Alert;
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+$yimp = new Yimp();
+$yimp->register($this);
 
-AppAsset::register($this);
+/** @var string $content Content came from view */
+
 ?>
+
 <?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</div>
+        <?php echo Html::csrfMetaTags() ?>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <title>
+            <?php echo Html::encode($yimp->nav->getTitle()) ?>
+            <?php if (Yii::$app->controller->route != 'site/index'): ?>
+                <?php echo ' | ' . Yii::$app->name ?>
+            <?php endif ?>
+        </title>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+        <?php $this->head() ?>
+    </head>
+    <body>
+    <?php $this->beginBody() ?>
 
-<?php $this->endBody() ?>
-</body>
-</html>
+    <?php echo $yimp->navbar() ?>
+
+    <?php echo $yimp->beginSidebars() ?>
+        <?php echo $yimp->beginLeftSidebar() ?>
+
+            <?php echo $yimp->beginLeftSidebarMenu() ?>
+                <?php echo $yimp->menuLeft([
+                    'options' => ['class' => 'nav-pills flex-column border rounded py-2']
+                ]) ?>
+            <?php echo $yimp->endLeftSidebarMenu() ?>
+
+            <?php if (isset($this->blocks[$yimp::SIDEBAR_LEFT])): ?>
+                <?php echo $this->blocks[$yimp::SIDEBAR_LEFT] ?>
+            <?php endif ?>
+
+        <?php echo $yimp->endLeftSidebar() ?>
+
+        <?php echo $yimp->beginRightSidebar() ?>
+
+        <?php echo $yimp->beginRightSidebarMenu() ?>
+            <?php echo $yimp->menuRight([
+                'options' => ['class' => 'nav-pills flex-column border rounded py-2']
+            ]) ?>
+        <?php echo $yimp->endRightSidebarMenu() ?>
+
+        <?php if (isset($this->blocks[$yimp::SIDEBAR_RIGHT])): ?>
+            <?php echo $this->blocks[$yimp::SIDEBAR_RIGHT] ?>
+        <?php endif ?>
+
+        <?php echo $yimp->endRightSidebar() ?>
+    <?php echo $yimp->endSidebars() ?>
+
+    <?php echo $yimp->beginContent() ?>
+    <?php echo $yimp->headerDesktop() ?>
+
+    <?php echo Alert::widget() ?>
+
+    <?php echo $content ?>
+    <?php echo $yimp->endContent() ?>
+
+    <?php if (isset($this->blocks[$yimp::FOOTER])): ?>
+        <?php echo $this->blocks[$yimp::FOOTER] ?>
+    <?php endif ?>
+
+    <?php $this->endBody() ?>
+    </body>
+    </html>
 <?php $this->endPage() ?>

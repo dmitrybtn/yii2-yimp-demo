@@ -1,0 +1,16 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 53
+            [file] => ../package/src/widgets/Alert.php
+            [message] => Method run has no parent to inherit from in dmitrybtn\yimp\widgets\Alert.
+        )
+
+    [1] => Array
+        (
+            [file] => ../package/src/widgets/Alert.php
+            [message] => broken link to \yii\bootstrap\Alert::closeButton in dmitrybtn\yimp\widgets\Alert
+        )
+
+)

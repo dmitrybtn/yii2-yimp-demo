@@ -1,0 +1,122 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 14
+            [file] => ../package/src/Asset.php
+            [message] => No docblock for element '$sourcePath'
+        )
+
+    [1] => Array
+        (
+            [line] => 14
+            [file] => ../package/src/Asset.php
+            [message] => No short description for element '$sourcePath'
+        )
+
+    [2] => Array
+        (
+            [line] => 16
+            [file] => ../package/src/Asset.php
+            [message] => No docblock for element '$css'
+        )
+
+    [3] => Array
+        (
+            [line] => 16
+            [file] => ../package/src/Asset.php
+            [message] => No short description for element '$css'
+        )
+
+    [4] => Array
+        (
+            [line] => 20
+            [file] => ../package/src/Asset.php
+            [message] => No docblock for element '$js'
+        )
+
+    [5] => Array
+        (
+            [line] => 20
+            [file] => ../package/src/Asset.php
+            [message] => No short description for element '$js'
+        )
+
+    [6] => Array
+        (
+            [line] => 24
+            [file] => ../package/src/Asset.php
+            [message] => No docblock for element '$depends'
+        )
+
+    [7] => Array
+        (
+            [line] => 24
+            [file] => ../package/src/Asset.php
+            [message] => No short description for element '$depends'
+        )
+
+    [8] => Array
+        (
+            [line] => 14
+            [file] => ../package/src/AssetIcons.php
+            [message] => No docblock for element '$sourcePath'
+        )
+
+    [9] => Array
+        (
+            [line] => 14
+            [file] => ../package/src/AssetIcons.php
+            [message] => No short description for element '$sourcePath'
+        )
+
+    [10] => Array
+        (
+            [line] => 16
+            [file] => ../package/src/AssetIcons.php
+            [message] => No docblock for element '$css'
+        )
+
+    [11] => Array
+        (
+            [line] => 16
+            [file] => ../package/src/AssetIcons.php
+            [message] => No short description for element '$css'
+        )
+
+    [12] => Array
+        (
+            [line] => 20
+            [file] => ../package/src/AssetIcons.php
+            [message] => No docblock for element '$publishOptions'
+        )
+
+    [13] => Array
+        (
+            [line] => 20
+            [file] => ../package/src/AssetIcons.php
+            [message] => No short description for element '$publishOptions'
+        )
+
+    [14] => Array
+        (
+            [line] => 12
+            [file] => ../package/src/ErrorAction.php
+            [message] => No docblock for element '$view'
+        )
+
+    [15] => Array
+        (
+            [line] => 12
+            [file] => ../package/src/ErrorAction.php
+            [message] => No short description for element '$view'
+        )
+
+    [16] => Array
+        (
+            [line] => 14
+            [file] => ../package/src/ErrorAction.php
+            [message] => No docblock for element 'run'
+        )
+
+)

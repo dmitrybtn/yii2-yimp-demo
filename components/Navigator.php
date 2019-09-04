@@ -14,6 +14,7 @@ class Navigator extends \dmitrybtn\yimp\Navigator
         $this->menuLeft = [
             ['label' => 'Main menu'],
             ['label' => CrudController::titleIndex(), 'url' => ['/crud/index']],
+            ['label' => 'API Documentation', 'url' => ['/api']],
         ];
 
     }
