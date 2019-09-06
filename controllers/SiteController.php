@@ -3,22 +3,13 @@
 namespace app\controllers;
 
 use Yii;
-use yii\web\Controller;
-use app\components\Navigator;
+use app\components\Controller;
 
 class SiteController extends Controller
 {
-    /**
-     * @var Navigator
-     */
-    public $nav;
+    const TITLE_INDEX = 'Index action';
 
-    public function init()
-    {
-        parent::init();
-
-        $this->nav = new Navigator();
-    }
+    const TITLE_SECOND = 'Second action';
 
 
     /**
@@ -30,6 +21,15 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'dmitrybtn\yimp\ErrorAction',
             ],
+        ];
+    }
+
+    public static function menuRight()
+    {
+        return [
+            ['label' => 'Options'],
+            ['label' => static::TITLE_INDEX, 'url' => ['/site/index']],
+            ['label' => static::TITLE_SECOND, 'url' => ['/site/second']],
         ];
     }
 
@@ -45,6 +45,21 @@ class SiteController extends Controller
         $this->nav->headerDesktop = false;
         $this->nav->headerMobile = 'YIMP';
 
+        $this->nav->menuRight = static::menuRight();
+
         return $this->render('index');
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionSecond()
+    {
+        $this->nav->title = static::TITLE_SECOND;
+        $this->nav->menuRight = static::menuRight();
+
+        return $this->render('second');
     }
 }

@@ -21,7 +21,7 @@ class CrudController extends Controller
      */
     public static function titleIndex()
     {
-        return Yii::t('app', 'CRUD Controller');
+        return Yii::t('app', 'CRUD Example');
     }
 
     /**

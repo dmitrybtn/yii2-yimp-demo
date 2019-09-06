@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9d5f3988bcca42127b04bc225a56695",
+    "content-hash": "5360c8ef0a623838be85521b4d3fd50d",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -180,21 +180,46 @@
         {
             "name": "dmitrybtn/yii2-yimp",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmitrybtn/yii2-yimp.git",
+                "reference": "32e3824b452381084a98e32947090cc1796110fa"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/dmitry/Sites/yii2-yimp/package",
-                "reference": "c82ef3959de08d3f551bf6b38863818ce1c863ff"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmitrybtn/yii2-yimp/zipball/32e3824b452381084a98e32947090cc1796110fa",
+                "reference": "32e3824b452381084a98e32947090cc1796110fa",
+                "shasum": ""
             },
             "require": {
                 "bower-asset/fontawesome": "~5.10.2",
-                "yiisoft/yii2-bootstrap4": "~2.0.6"
+                "yiisoft/yii2": "~2.0",
+                "yiisoft/yii2-bootstrap4": "^2.0"
             },
             "type": "yii2-extension",
             "autoload": {
                 "psr-4": {
                     "dmitrybtn\\yimp\\": "src"
                 }
-            }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Tishurin",
+                    "email": "dmitrybtn@ya.ru"
+                }
+            ],
+            "description": "Dashboard for the Yii framework based on Bootstrap 4",
+            "keywords": [
+                "bootstrap",
+                "bootstrap4",
+                "dashboard",
+                "yii2"
+            ],
+            "time": "2019-09-06T09:08:09+00:00"
         },
         {
             "name": "doctrine/lexer",

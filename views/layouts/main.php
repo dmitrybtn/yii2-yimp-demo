@@ -44,6 +44,18 @@ $yimp->register($this);
                 ]) ?>
             <?php echo $yimp->endLeftSidebarMenu() ?>
 
+            <div class="border rounded p-3 mt-3">
+                <div class="h5">Widget</div>
+                <p class="text-secondary">
+                    This widget was defined <strong>in layout</strong>, so it is visible on all pages.
+                </p>
+
+                <p class="text-secondary mb-0">
+                    Note, that sidebar widgets are visible only on desktops.
+                </p>
+            </div>
+
+
             <?php if (isset($this->blocks[$yimp::SIDEBAR_LEFT])): ?>
                 <?php echo $this->blocks[$yimp::SIDEBAR_LEFT] ?>
             <?php endif ?>
